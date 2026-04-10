@@ -328,89 +328,84 @@
       background:#fff;
     }
 
-    .contact-grid{
+    .contact-strip{
       display:grid;
-      grid-template-columns:0.82fr 1.18fr;
-      gap:24px;
-      align-items:start;
+      grid-template-columns:1.15fr 1fr 1fr;
+      gap:16px;
+      margin-bottom:20px;
     }
 
-    .contact-card{
+    .contact-main,
+    .contact-chip{
       background:linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(249,246,252,0.94) 100%);
-      border-radius:30px;
-      padding:34px;
-      box-shadow:var(--shadow);
       border:1px solid rgba(116, 79, 152, 0.08);
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:28px;
+      box-shadow:var(--shadow-soft);
+      border-radius:24px;
     }
 
-    .contact-top h2{
-      margin:0 0 14px;
-      font-size:1.75rem;
+    .contact-main{
+      padding:26px 28px;
     }
 
-    .contact-top p{
+    .contact-main h3{
+      margin:0 0 8px;
+      font-size:1.45rem;
+    }
+
+    .contact-main p{
       margin:0;
       color:var(--muted);
-      max-width:420px;
+      max-width:540px;
     }
 
-    .contact-info{
+    .contact-links{
       display:grid;
+      grid-template-columns:1fr 1fr;
       gap:14px;
+      margin-top:18px;
     }
 
-    .contact-line{
-      padding:18px 18px;
-      border:1px solid var(--line);
+    .contact-link{
+      padding:16px 18px;
       border-radius:18px;
-      background:rgba(255,255,255,0.92);
-      box-shadow:var(--shadow-soft);
+      background:#fff;
+      border:1px solid var(--line);
     }
 
-    .contact-line strong{
+    .contact-link strong{
       display:block;
       margin-bottom:6px;
-      font-size:0.92rem;
+      font-size:0.9rem;
       color:#4b4653;
     }
 
-    .contact-line a{
+    .contact-link a{
       text-decoration:none;
       color:var(--accent-dark);
       font-weight:bold;
       word-break:break-word;
-      font-size:1.02rem;
+      font-size:1rem;
     }
 
-    .contact-bottom{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
+    .contact-chip{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:100%;
     }
 
-    .contact-mini{
-      padding:16px;
-      border-radius:18px;
-      background:linear-gradient(180deg, rgba(246,242,251,0.95) 0%, rgba(255,255,255,0.95) 100%);
-      border:1px solid rgba(116, 79, 152, 0.08);
-    }
-
-    .contact-mini strong{
+    .contact-chip strong{
       display:block;
-      font-size:0.9rem;
-      margin-bottom:6px;
+      margin-bottom:8px;
+      font-size:1rem;
       color:#433d4d;
     }
 
-    .contact-mini span{
+    .contact-chip span{
       display:block;
-      font-size:0.95rem;
       color:var(--muted);
+      font-size:0.95rem;
     }
 
     .forms-stack{
@@ -538,8 +533,8 @@
 
     @media (max-width: 980px){
       .hero-grid,
-      .contact-grid,
-      .services{
+      .services,
+      .contact-strip{
         grid-template-columns:1fr;
       }
 
@@ -547,8 +542,8 @@
         height:420px;
       }
 
-      .contact-bottom{
-        grid-template-columns:1fr 1fr;
+      .contact-links{
+        grid-template-columns:1fr;
       }
     }
 
@@ -575,8 +570,7 @@
         padding:26px;
       }
 
-      .field-row,
-      .contact-bottom{
+      .field-row{
         grid-template-columns:1fr;
       }
 
@@ -726,103 +720,100 @@
         </p>
       </div>
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-top">
-            <h2>Nous joindre</h2>
-            <p>
-              Pour discuter d’un projet, demander une soumission ou poser une question,
-              contactez Plâtrier Zolo directement.
-            </p>
-          </div>
+      <div class="contact-strip">
+        <div class="contact-main">
+          <h3>Nous joindre</h3>
+          <p>
+            Pour discuter d’un projet, demander une soumission ou poser une question,
+            contactez Plâtrier Zolo directement.
+          </p>
 
-          <div class="contact-info">
-            <div class="contact-line">
+          <div class="contact-links">
+            <div class="contact-link">
               <strong>Téléphone</strong>
               <a href="tel:+15813088826">+1 581-308-8826</a>
             </div>
 
-            <div class="contact-line">
+            <div class="contact-link">
               <strong>Courriel</strong>
               <a href="mailto:info@zoloplatrier.com">info@zoloplatrier.com</a>
             </div>
           </div>
-
-          <div class="contact-bottom">
-            <div class="contact-mini">
-              <strong>Soumission</strong>
-              <span>Projet résidentiel ou commercial</span>
-            </div>
-            <div class="contact-mini">
-              <strong>Emploi</strong>
-              <span>Candidature et qualifications</span>
-            </div>
-          </div>
         </div>
 
-        <div class="forms-stack">
-          <div class="form-box" id="soumission">
-            <h2>Soumission</h2>
-            <p>Décrivez votre projet pour recevoir une réponse plus efficace.</p>
+        <div class="contact-chip">
+          <strong>Soumission</strong>
+          <span>Projet résidentiel ou commercial, demande claire et rapide.</span>
+        </div>
 
-            <form id="quoteForm">
-              <div class="field-row">
-                <div>
-                  <label for="quoteName">Nom</label>
-                  <input id="quoteName" type="text" required />
-                </div>
-                <div>
-                  <label for="quoteEmail">Email</label>
-                  <input id="quoteEmail" type="email" required />
-                </div>
-              </div>
+        <div class="contact-chip">
+          <strong>Emploi</strong>
+          <span>Envoyez votre candidature et vos qualifications.</span>
+        </div>
+      </div>
 
+      <div class="forms-stack">
+        <div class="form-box" id="soumission">
+          <h2>Soumission</h2>
+          <p>Décrivez votre projet pour recevoir une réponse plus efficace.</p>
+
+          <form id="quoteForm">
+            <div class="field-row">
               <div>
-                <label for="quoteBudget">Budget</label>
-                <input id="quoteBudget" type="text" />
+                <label for="quoteName">Nom</label>
+                <input id="quoteName" type="text" required />
               </div>
-
               <div>
-                <label for="quoteDescription">Description du projet</label>
-                <textarea id="quoteDescription" required></textarea>
+                <label for="quoteEmail">Email</label>
+                <input id="quoteEmail" type="email" required />
               </div>
+            </div>
 
+            <div>
+              <label for="quoteBudget">Budget</label>
+              <input id="quoteBudget" type="text" />
+            </div>
+
+            <div>
+              <label for="quoteDescription">Description du projet</label>
+              <textarea id="quoteDescription" required></textarea>
+            </div>
+
+            <div>
+              <label for="quotePhotos">Photos du projet</label>
+              <input id="quotePhotos" type="file" multiple accept="image/*" />
+              <div class="note">
+                Note : le formulaire ouvre votre application courriel. Les photos sélectionnées ne seront pas jointes automatiquement avec cette méthode.
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Envoyer la soumission</button>
+          </form>
+        </div>
+
+        <div class="form-box" id="emploi">
+          <h2>Emploi</h2>
+          <p>Envoyez vos informations et vos qualifications.</p>
+
+          <form id="jobForm">
+            <div class="field-row">
               <div>
-                <label for="quotePhotos">Photos du projet</label>
-                <input id="quotePhotos" type="file" multiple accept="image/*" />
-                <div class="note">
-                  Note : le formulaire ouvre votre application courriel. Les photos sélectionnées ne seront pas jointes automatiquement avec cette méthode.
-                </div>
+                <label for="jobName">Nom</label>
+                <input id="jobName" type="text" required />
               </div>
-
-              <button type="submit" class="submit-btn">Envoyer la soumission</button>
-            </form>
-          </div>
-
-          <div class="form-box" id="emploi">
-            <h2>Emploi</h2>
-            <p>Envoyez vos informations et vos qualifications.</p>
-
-            <form id="jobForm">
-              <div class="field-row">
-                <div>
-                  <label for="jobName">Nom</label>
-                  <input id="jobName" type="text" required />
-                </div>
-                <div>
-                  <label for="jobEmail">Email</label>
-                  <input id="jobEmail" type="email" required />
-                </div>
-              </div>
-
               <div>
-                <label for="jobQualifications">Qualifications</label>
-                <textarea id="jobQualifications" required></textarea>
+                <label for="jobEmail">Email</label>
+                <input id="jobEmail" type="email" required />
               </div>
+            </div>
 
-              <button type="submit" class="submit-btn">Envoyer la candidature</button>
-            </form>
-          </div>
+            <div>
+              <label for="jobQualifications">Qualifications</label>
+              <textarea id="jobQualifications" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Envoyer la candidature</button>
+          </form>
         </div>
       </div>
     </section>
