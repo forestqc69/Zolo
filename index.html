@@ -4,964 +4,117 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plâtrier Zolo</title>
-  <meta
-    name="description"
-    content="Plâtrier Zolo — Tirage de joint, enduit acrylique et réparation de plâtre. Soumission rapide et candidature en ligne."
-  />
+  <meta name="description" content="Plâtrier Zolo — Tirage de joint, enduit acrylique et réparation de plâtre." />
+
   <style>
-    :root {
-      --primary: #6c18c9;
-      --primary-dark: #4d0f96;
-      --accent: #a7a7ad;
-      --text: #1e1e24;
-      --muted: #61616d;
-      --line: rgba(108, 24, 201, 0.12);
-      --bg: #ffffff;
-      --soft: linear-gradient(180deg, #ffffff 0%, #fbf9ff 55%, #f6f3fb 100%);
-      --shadow: 0 18px 50px rgba(26, 26, 34, 0.08);
-      --radius: 22px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--soft);
-      line-height: 1.5;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, 0.84);
-      border-bottom: 1px solid rgba(108, 24, 201, 0.08);
-    }
-
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      min-width: 0;
-    }
-
-    .brand img {
-      width: 62px;
-      height: 62px;
-      object-fit: contain;
-      border-radius: 14px;
-      background: #fff;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.05);
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 1.04rem;
-      letter-spacing: 0.01em;
-    }
-
-    .brand-text span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a,
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.15rem;
-      border-radius: 999px;
-      font-weight: 600;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      color: white;
-      background: linear-gradient(135deg, var(--primary) 0%, #8a42dd 100%);
-      box-shadow: 0 12px 26px rgba(108, 24, 201, 0.22);
-    }
-
-    .btn-primary:hover { transform: translateY(-1px); }
-
-    .btn-secondary {
-      background: white;
-      border-color: rgba(108, 24, 201, 0.14);
-      color: var(--primary-dark);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(108, 24, 201, 0.26);
-      background: #fcfbff;
-    }
-
-    .hero {
-      padding: 3rem 0 2rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-
-    .hero-card,
-    .card {
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(108, 24, 201, 0.08);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-copy {
-      padding: clamp(1.5rem, 2.5vw, 2.6rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      inset: auto -90px -90px auto;
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(108,24,201,0.12), transparent 68%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      width: fit-content;
-      margin-bottom: 1rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      background: rgba(108,24,201,0.08);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      font-size: clamp(2.1rem, 5vw, 4.2rem);
-      line-height: 1.02;
-      margin-bottom: 1rem;
-      letter-spacing: -0.04em;
-    }
-
-    .lead {
-      font-size: clamp(1rem, 1.5vw, 1.12rem);
-      color: var(--muted);
-      max-width: 60ch;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.85rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.8rem;
-    }
-
-    .point {
-      padding: 0.95rem;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,247,252,1) 100%);
-      border: 1px solid rgba(108, 24, 201, 0.08);
-    }
-
-    .point strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 0.24rem;
-    }
-
-    .point span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .hero-media {
-      overflow: hidden;
-      min-height: 460px;
-      position: relative;
-    }
-
-    .hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: auto 1rem 1rem 1rem;
-      background: rgba(255,255,255,0.86);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.6);
-      border-radius: 18px;
-      padding: 1rem;
-      box-shadow: 0 12px 30px rgba(20,20,30,0.12);
-    }
-
-    .hero-overlay strong {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-size: 1rem;
-    }
-
-    .hero-overlay span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    section {
-      padding: 1.4rem 0 1rem;
-    }
-
-    .section-head {
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      letter-spacing: -0.03em;
-      margin-bottom: 0.35rem;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      margin-bottom: 0;
-      max-width: 62ch;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .service {
-      padding: 1.3rem;
-    }
-
-    .service-badge {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: white;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), #9049e0);
-      margin-bottom: 1rem;
-    }
-
-    .service p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 22px;
-      min-height: 250px;
-      background: #f0edf5;
-      border: 1px solid rgba(108, 24, 201, 0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.45s ease;
-    }
-
-    .gallery-item:hover img { transform: scale(1.03); }
-
-    .gallery-item.large { grid-column: span 7; }
-    .gallery-item.medium { grid-column: span 5; }
-    .gallery-item.third { grid-column: span 4; }
-
-    .gallery-label {
-      position: absolute;
-      left: 0.85rem;
-      bottom: 0.85rem;
-      padding: 0.58rem 0.78rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.9);
-      font-size: 0.88rem;
-      font-weight: 700;
-      box-shadow: 0 8px 24px rgba(20,20,30,0.13);
-    }
-
-    .cta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .cta-card {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .cta-card p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 1rem;
-      align-items: stretch;
-    }
-
-    .contact-card,
-    .form-card {
-      padding: 1.4rem;
-    }
-
-    .info-list {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 1rem;
-    }
-
-    .info-item {
-      padding: 1rem;
-      border-radius: 18px;
-      border: 1px solid rgba(108, 24, 201, 0.08);
-      background: linear-gradient(180deg, #fff 0%, #fcfbfe 100%);
-    }
-
-    .info-item small {
-      display: block;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-weight: 700;
-    }
-
-    .info-item a,
-    .info-item span {
-      font-size: 1rem;
-      font-weight: 600;
-      word-break: break-word;
-    }
-
-    .form-tabs {
-      display: flex;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-
-    .tab-btn {
-      border: 1px solid rgba(108, 24, 201, 0.12);
-      background: white;
-      color: var(--primary-dark);
-      border-radius: 999px;
-      padding: 0.78rem 1rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .tab-btn.active {
-      background: linear-gradient(135deg, var(--primary) 0%, #8a42dd 100%);
-      color: white;
-      border-color: transparent;
-    }
-
-    .form-panel { display: none; }
-    .form-panel.active { display: block; }
-
-    form {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.95rem;
-    }
-
-    .field,
-    .field-full {
-      display: flex;
-      flex-direction: column;
-      gap: 0.42rem;
-    }
-
-    .field-full { grid-column: 1 / -1; }
-
-    label {
-      font-size: 0.93rem;
-      font-weight: 700;
-      color: #2f2f39;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      border-radius: 14px;
-      border: 1px solid rgba(108, 24, 201, 0.14);
-      background: #fff;
-      font: inherit;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: rgba(108, 24, 201, 0.5);
-      box-shadow: 0 0 0 4px rgba(108, 24, 201, 0.08);
-    }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .hint {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    .disclaimer {
-      grid-column: 1 / -1;
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      font-size: 0.9rem;
-      color: #4e4e59;
-      background: rgba(108, 24, 201, 0.05);
-      border: 1px solid rgba(108, 24, 201, 0.08);
-    }
-
-    .footer {
-      padding: 2.2rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .footer-box {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(108, 24, 201, 0.1);
-    }
-
-    @media (max-width: 1050px) {
-      .hero-grid,
-      .contact-grid,
-      .cta-grid,
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item.large,
-      .gallery-item.medium,
-      .gallery-item.third {
-        grid-column: span 12;
-      }
-
-      .hero-points {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        padding: 0.7rem 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .hero { padding-top: 1.4rem; }
-
-      form {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-media { min-height: 320px; }
-
-      h1 { max-width: 12ch; }
-    }
+    body { margin:0; font-family: Arial, sans-serif; background: linear-gradient(#fff,#f5f5f5); }
+    .container { width:90%; max-width:1200px; margin:auto; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+    nav a { margin-left:15px; text-decoration:none; color:#333; font-weight:bold; }
+    .hero { display:flex; gap:20px; margin-top:30px; }
+    .hero img { width:100%; border-radius:10px; }
+    .services { display:flex; gap:20px; margin-top:40px; }
+    .card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.1); flex:1; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; margin-top:30px; }
+    .gallery img { width:100%; border-radius:10px; }
+    .contact { display:flex; gap:20px; margin-top:40px; }
+    form { display:flex; flex-direction:column; gap:10px; }
+    input, textarea { padding:10px; border-radius:8px; border:1px solid #ccc; }
+    button { padding:12px; background:#6c18c9; color:#fff; border:none; border-radius:8px; cursor:pointer; }
   </style>
 </head>
 <body>
-  <!--
-    IMPORTANT
-    Place all images in the same folder as this HTML file and keep these names,
-    or replace the src values below with your final filenames.
 
-    Suggested files:
-    - logo-zolo.png
-    - hero-zolo.jpg
-    - galerie-1.jpg
-    - galerie-2.jpg
-    - galerie-3.jpg
-    - galerie-4.jpg
-    - galerie-5.jpg
-    - galerie-6.jpg
-  -->
+<div class="container">
 
-  <header class="topbar">
-    <div class="container nav">
-      <a href="#accueil" class="brand" aria-label="Accueil Plâtrier Zolo">
-        <img src="assets/logo-zolo.png" alt="Logo Plâtrier Zolo" />
-        <div class="brand-text">
-          <strong>Plâtrier Zolo</strong>
-          <span>Tirage de joint • Enduit acrylique • Réparation de plâtre</span>
-        </div>
-      </a>
+<header>
+  <div>
+    <img src="assets/logo-zolo.png" width="60" />
+    <strong>Plâtrier Zolo</strong>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#realisations">Réalisations</a>
-        <a href="#contact">Contact</a>
-        <a href="#formulaires" class="btn btn-secondary">Formulaires</a>
-        <a href="tel:+15813088826" class="btn btn-primary">Appeler</a>
-      </nav>
-    </div>
-  </header>
+<section class="hero">
+  <div style="flex:1">
+    <h1>Finition professionnelle de qualité</h1>
+    <p>Tirage de joint, enduit acrylique et réparation de plâtre.</p>
+  </div>
+  <div style="flex:1">
+    <img src="assets/hero-zolo.jpg" />
+  </div>
+</section>
 
-  <main>
-    <section class="hero" id="accueil">
-      <div class="container hero-grid">
-        <div class="hero-card hero-copy">
-          <span class="eyebrow">Entreprise de finition intérieure</span>
-          <h1>Des finis propres, solides et professionnels.</h1>
-          <p class="lead">
-            Plâtrier Zolo offre un service fiable en tirage de joint, enduit acrylique et réparation de plâtre,
-            avec une approche soignée pour les projets résidentiels, commerciaux et de rénovation.
-          </p>
+<section id="services" class="services">
+  <div class="card">
+    <h3>Tirage de joint</h3>
+    <p>Finition propre et uniforme.</p>
+  </div>
+  <div class="card">
+    <h3>Enduit acrylique</h3>
+    <p>Finition durable extérieure.</p>
+  </div>
+  <div class="card">
+    <h3>Réparation de plâtre</h3>
+    <p>Remise à neuf des surfaces.</p>
+  </div>
+</section>
 
-          <div class="hero-actions">
-            <a href="#soumission" class="btn btn-primary">Demander une soumission</a>
-            <a href="#emploi" class="btn btn-secondary">Postuler chez nous</a>
-          </div>
+<section id="realisations">
+  <h2>Réalisations</h2>
+  <div class="gallery">
+    <img src="assets/galerie-1.jpg" />
+    <img src="assets/galerie-2.jpg" />
+    <img src="assets/galerie-3.jpg" />
+    <img src="assets/galerie-4.jpg" />
+    <img src="assets/galerie-5.jpg" />
+  </div>
+</section>
 
-          <div class="hero-points">
-            <div class="point">
-              <strong>Tirage de joint</strong>
-              <span>Finition nette et uniforme.</span>
-            </div>
-            <div class="point">
-              <strong>Enduit acrylique</strong>
-              <span>Finition durable pour différents types de surfaces.</span>
-            </div>
-            <div class="point">
-              <strong>Réparation de plâtre</strong>
-              <span>Remise en état propre et efficace.</span>
-            </div>
-          </div>
-        </div>
+<section id="contact" class="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <p><a href="tel:+15813088826">+1 581-308-8826</a></p>
+    <p><a href="mailto:info@zoloplatrier.com">info@zoloplatrier.com</a></p>
+  </div>
 
-        <div class="hero-card hero-media">
-          <img src="assets/hero-zolo.jpg" alt="Projet de finition intérieure par Plâtrier Zolo" />
-          <div class="hero-overlay">
-            <strong>Soumission rapide</strong>
-            <span>Envoyez votre projet, votre budget et vos photos en quelques clics.</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="card">
+    <h2>Soumission</h2>
+    <form onsubmit="sendQuote(event)">
+      <input placeholder="Nom" required>
+      <input type="email" placeholder="Email" required>
+      <input placeholder="Budget">
+      <textarea placeholder="Description"></textarea>
+      <button>Envoyer</button>
+    </form>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Nos services</h2>
-            <p>
-              Une présentation simple, professionnelle et directe des principaux services offerts par l’entreprise.
-            </p>
-          </div>
-        </div>
+    <h2>Emploi</h2>
+    <form onsubmit="sendJob(event)">
+      <input placeholder="Nom" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Qualifications"></textarea>
+      <button>Envoyer</button>
+    </form>
+  </div>
+</section>
 
-        <div class="services">
-          <article class="card service">
-            <div class="service-badge">01</div>
-            <h3>Tirage de joint</h3>
-            <p>
-              Application et finition des joints de gypse avec précision pour un rendu propre, uniforme et prêt à peindre.
-            </p>
-          </article>
+</div>
 
-          <article class="card service">
-            <div class="service-badge">02</div>
-            <h3>Enduit acrylique</h3>
-            <p>
-              Travaux d’enduit acrylique pour façades et surfaces extérieures, avec un souci constant de qualité et de durabilité.
-            </p>
-          </article>
+<script>
+function sendQuote(e){
+  e.preventDefault();
+  window.location.href = "mailto:info@zoloplatrier.com";
+}
 
-          <article class="card service">
-            <div class="service-badge">03</div>
-            <h3>Réparation de plâtre</h3>
-            <p>
-              Réparation de fissures, d’impacts et de sections abîmées pour redonner une finition nette aux murs et plafonds.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+function sendJob(e){
+  e.preventDefault();
+  window.location.href = "mailto:info@zoloplatrier.com";
+}
+</script>
 
-    <section id="realisations">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Réalisations</h2>
-            <p>
-              Quelques images de chantier et de finition pour mettre en valeur le travail de l’équipe.
-            </p>
-          </div>
-        </div>
-
-        <div class="gallery">
-          <div class="gallery-item large">
-            <img src="assets/galerie-1.jpg" alt="Chantier intérieur de grande hauteur" />
-            <div class="gallery-label">Intérieur commercial</div>
-          </div>
-          <div class="gallery-item medium">
-            <img src="assets/galerie-2.jpg" alt="Corridor en finition de plâtre" />
-            <div class="gallery-label">Travaux de finition</div>
-          </div>
-          <div class="gallery-item third">
-            <img src="assets/galerie-3.jpg" alt="Membre de l’équipe Plâtrier Zolo" />
-            <div class="gallery-label">Équipe sur le terrain</div>
-          </div>
-          <div class="gallery-item third">
-            <img src="assets/galerie-4.jpg" alt="Travail de joint sur échafaudage" />
-            <div class="gallery-label">Travail en hauteur</div>
-          </div>
-          <div class="gallery-item third">
-            <img src="assets/galerie-5.jpg" alt="Finition lisse de plâtre" />
-            <div class="gallery-label">Finition soignée</div>
-          </div>
-          <div class="gallery-item medium">
-            <img src="assets/galerie-6.jpg" alt="Enduit acrylique extérieur" />
-            <div class="gallery-label">Enduit acrylique</div>
-          </div>
-          <div class="gallery-item large">
-            <img src="assets/galerie-7.jpg" alt="Grand projet industriel en cours" />
-            <div class="gallery-label">Projet d’envergure</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="formulaires">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Formulaires</h2>
-            <p>
-              Deux formulaires sont intégrés directement au site : un pour demander une soumission et un pour postuler à un emploi.
-            </p>
-          </div>
-        </div>
-
-        <div class="cta-grid">
-          <article class="card cta-card">
-            <h3>Besoin d’une soumission ?</h3>
-            <p>
-              Décrivez le projet, ajoutez vos coordonnées, votre budget approximatif et joignez des photos si nécessaire.
-            </p>
-            <a href="#soumission" class="btn btn-primary">Ouvrir le formulaire de soumission</a>
-          </article>
-
-          <article class="card cta-card">
-            <h3>Vous souhaitez joindre l’équipe ?</h3>
-            <p>
-              Envoyez votre candidature avec vos coordonnées et un résumé de votre expérience dans le domaine.
-            </p>
-            <a href="#emploi" class="btn btn-secondary">Ouvrir le formulaire d’emploi</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container contact-grid">
-        <div class="card contact-card">
-          <span class="eyebrow">Coordonnées</span>
-          <h2>Contactez Plâtrier Zolo</h2>
-          <p class="lead" style="margin-bottom: 1rem;">
-            Pour une demande d’information, une soumission ou une candidature, les liens ci-dessous sont déjà prêts.
-          </p>
-
-          <div class="info-list">
-            <div class="info-item">
-              <small>Téléphone</small>
-              <a href="tel:+15813088826">+1 581-308-8826</a>
-            </div>
-            <div class="info-item">
-              <small>Courriel</small>
-              <a href="mailto:info@zoloplatrier.com">info@zoloplatrier.com</a>
-            </div>
-            <div class="info-item">
-              <small>Facebook</small>
-              <a href="#" target="_blank" rel="noopener">Plâtrier Zolo</a>
-            </div>
-            <div class="info-item">
-              <small>Adresse</small>
-              <span>220 Rue Edward-Assh, Sainte-Catherine-de-la-Jacques-Cartier, QC, G3J 1A1</span>
-            </div>
-            <div class="info-item">
-              <small>Site web</small>
-              <a href="https://zoloplatrier.com" target="_blank" rel="noopener">zoloplatrier.com</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card form-card">
-          <div class="form-tabs" aria-label="Sélection du formulaire">
-            <button class="tab-btn active" type="button" data-tab="soumission">Soumission</button>
-            <button class="tab-btn" type="button" data-tab="emploi">Emploi</button>
-          </div>
-
-          <div class="form-panel active" id="soumission">
-            <h3>Demande de soumission</h3>
-            <p class="hint">
-              Ce formulaire prépare l’envoi vers l’adresse courriel de l’entreprise.
-            </p>
-
-            <form id="quoteForm">
-              <div class="field">
-                <label for="quote-name">Nom complet</label>
-                <input id="quote-name" name="nom" type="text" placeholder="Votre nom" required />
-              </div>
-
-              <div class="field">
-                <label for="quote-email">Courriel</label>
-                <input id="quote-email" name="email" type="email" placeholder="vous@exemple.com" required />
-              </div>
-
-              <div class="field">
-                <label for="quote-phone">Téléphone</label>
-                <input id="quote-phone" name="telephone" type="tel" placeholder="Votre numéro" />
-              </div>
-
-              <div class="field">
-                <label for="quote-budget">Budget approximatif</label>
-                <input id="quote-budget" name="budget" type="text" placeholder="Ex. 5 000 $" required />
-              </div>
-
-              <div class="field-full">
-                <label for="quote-project">Description du projet</label>
-                <textarea id="quote-project" name="projet" placeholder="Décrivez votre projet, les travaux souhaités, l’emplacement et les délais." required></textarea>
-              </div>
-
-              <div class="field-full">
-                <label for="quote-photos">Photos du projet</label>
-                <input id="quote-photos" name="photos" type="file" accept="image/*" multiple />
-                <p class="hint">
-                  Les photos sont sélectionnées sur l’appareil. Pour un envoi automatique avec pièces jointes, il faut relier ce site à un service de formulaire ou à un backend mail sécurisé.
-                </p>
-              </div>
-
-              <div class="disclaimer">
-                Version intégrée : le bouton ci-dessous prépare un courriel professionnel avec les informations du formulaire.
-                Les pièces jointes devront être ajoutées dans le courriel ouvert, ou branchées à un service d’envoi réel dans la prochaine étape.
-              </div>
-
-              <div class="field-full">
-                <button class="btn btn-primary" type="submit">Envoyer la demande</button>
-              </div>
-            </form>
-          </div>
-
-          <div class="form-panel" id="emploi">
-            <h3>Candidature d’emploi</h3>
-            <p class="hint">
-              Formulaire pour les personnes souhaitant travailler chez Plâtrier Zolo.
-            </p>
-
-            <form id="jobForm">
-              <div class="field">
-                <label for="job-name">Nom complet</label>
-                <input id="job-name" name="nom" type="text" placeholder="Votre nom" required />
-              </div>
-
-              <div class="field">
-                <label for="job-email">Courriel</label>
-                <input id="job-email" name="email" type="email" placeholder="vous@exemple.com" required />
-              </div>
-
-              <div class="field-full">
-                <label for="job-qualifications">Qualifications et expérience</label>
-                <textarea id="job-qualifications" name="qualifications" placeholder="Décrivez votre expérience, vos compétences et votre disponibilité." required></textarea>
-              </div>
-
-              <div class="field-full">
-                <label for="job-cv">CV ou document</label>
-                <input id="job-cv" name="cv" type="file" accept=".pdf,.doc,.docx,image/*" />
-                <p class="hint">
-                  Comme pour la soumission, l’envoi direct de pièces jointes par formulaire nécessite un service externe ou un backend.
-                </p>
-              </div>
-
-              <div class="disclaimer">
-                Le bouton ci-dessous génère un courriel prérempli vers l’entreprise. Pour un site 100 % automatisé avec réception des documents, il faudra brancher le formulaire à une solution serveur.
-              </div>
-
-              <div class="field-full">
-                <button class="btn btn-primary" type="submit">Envoyer la candidature</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-box">
-      <div>
-        <strong>Plâtrier Zolo</strong><br />
-        Tirage de joint, enduit acrylique et réparation de plâtre.
-      </div>
-      <div>
-        <a href="mailto:info@zoloplatrier.com">info@zoloplatrier.com</a><br />
-        <a href="tel:+15813088826">+1 581-308-8826</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const panels = document.querySelectorAll('.form-panel');
-
-    tabButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const target = button.dataset.tab;
-
-        tabButtons.forEach((btn) => btn.classList.remove('active'));
-        panels.forEach((panel) => panel.classList.remove('active'));
-
-        button.classList.add('active');
-        document.getElementById(target).classList.add('active');
-        document.getElementById(target).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    });
-
-    function encodeBody(text) {
-      return encodeURIComponent(text.replace(/\n/g, '\r\n'));
-    }
-
-    document.getElementById('quoteForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const nom = document.getElementById('quote-name').value.trim();
-      const email = document.getElementById('quote-email').value.trim();
-      const telephone = document.getElementById('quote-phone').value.trim();
-      const budget = document.getElementById('quote-budget').value.trim();
-      const projet = document.getElementById('quote-project').value.trim();
-      const photos = document.getElementById('quote-photos').files;
-
-      let listePhotos = 'Aucune photo sélectionnée';
-      if (photos.length) {
-        listePhotos = Array.from(photos).map(file => `- ${file.name}`).join('\n');
-      }
-
-      const subject = 'Demande de soumission - Plâtrier Zolo';
-      const body = `Bonjour,\n\nJe souhaite obtenir une soumission.\n\nNom : ${nom}\nCourriel : ${email}\nTéléphone : ${telephone || 'Non indiqué'}\nBudget approximatif : ${budget}\n\nDescription du projet :\n${projet}\n\nPhotos sélectionnées :\n${listePhotos}\n\nMerci.`;
-
-      window.location.href = `mailto:info@zoloplatrier.com?subject=${encodeURIComponent(subject)}&body=${encodeBody(body)}`;
-    });
-
-    document.getElementById('jobForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const nom = document.getElementById('job-name').value.trim();
-      const email = document.getElementById('job-email').value.trim();
-      const qualifications = document.getElementById('job-qualifications').value.trim();
-      const cv = document.getElementById('job-cv').files;
-
-      let pieceJointe = 'Aucun document sélectionné';
-      if (cv.length) {
-        pieceJointe = Array.from(cv).map(file => `- ${file.name}`).join('\n');
-      }
-
-      const subject = 'Candidature - Plâtrier Zolo';
-      const body = `Bonjour,\n\nJe souhaite poser ma candidature chez Plâtrier Zolo.\n\nNom : ${nom}\nCourriel : ${email}\n\nQualifications et expérience :\n${qualifications}\n\nDocument sélectionné :\n${pieceJointe}\n\nMerci.`;
-
-      window.location.href = `mailto:info@zoloplatrier.com?subject=${encodeURIComponent(subject)}&body=${encodeBody(body)}`;
-    });
-  </script>
 </body>
 </html>
-
