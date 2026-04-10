@@ -238,6 +238,30 @@
       color:var(--muted);
     }
 
+    .video-block{
+      margin-bottom:26px;
+      background:#fff;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,0.05);
+    }
+
+    .video-frame{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+      background:#000;
+    }
+
+    .video-frame iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
     .gallery-stack{
       display:grid;
       gap:26px;
@@ -531,6 +555,18 @@
         <p>
           Quelques exemples de chantiers et de finitions réalisés par Plâtrier Zolo.
         </p>
+      </div>
+
+      <div class="video-block">
+        <div class="video-frame">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F1C674LvrYY%2F&show_text=false&width=1200"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
       </div>
 
       <div class="gallery-stack">
