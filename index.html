@@ -276,21 +276,21 @@
       color:var(--muted);
     }
 
-    .region-box{
-      margin-top:20px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(248,244,252,0.92) 100%);
+    .service-area-box{
+      margin-top:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(247,243,252,0.92) 100%);
       border:1px solid rgba(116, 79, 152, 0.08);
-      border-radius:24px;
-      padding:26px 28px;
+      border-radius:28px;
+      padding:28px 30px;
       box-shadow:var(--shadow-soft);
     }
 
-    .region-box h3{
+    .service-area-box h3{
       margin:0 0 10px;
-      font-size:1.25rem;
+      font-size:1.35rem;
     }
 
-    .region-box p{
+    .service-area-box p{
       margin:0;
       color:var(--muted);
       font-size:1rem;
@@ -696,9 +696,12 @@
       }
 
       .contact-main,
-      .contact-chip,
-      .region-box{
+      .contact-chip{
         padding:20px;
+      }
+
+      .service-area-box{
+        padding:22px 20px;
       }
     }
   </style>
@@ -773,11 +776,11 @@
         </div>
       </div>
 
-      <div class="region-box">
-        <h3>Régions desservies</h3>
+      <div class="service-area-box">
+        <h3>Secteur desservi</h3>
         <p>
-          Nous desservons la grande région de Québec, incluant Lac-Saint-Charles,
-          Sainte-Catherine, Beauport, la ville de Québec ainsi que les secteurs environnants.
+          Nous desservons le grand secteur de Québec, incluant Lac-Saint-Charles,
+          Sainte-Catherine, Beauport, la ville de Québec et les environs.
         </p>
       </div>
     </section>
@@ -916,4 +919,84 @@
           <h2>Emploi</h2>
           <p>Envoyez vos informations et vos qualifications.</p>
 
-          <
+          <form id="jobForm">
+            <div class="field-row">
+              <div>
+                <label for="jobName">Nom</label>
+                <input id="jobName" type="text" required />
+              </div>
+              <div>
+                <label for="jobEmail">Email</label>
+                <input id="jobEmail" type="email" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="jobQualifications">Qualifications</label>
+              <textarea id="jobQualifications" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Envoyer la candidature</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-line">
+        <div>© Plâtrier Zolo</div>
+        <div>Finition de plâtre • Tirage de joint • Enduit acrylique</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function openMailto(subject, body) {
+      const mailto = `mailto:info@zoloplatrier.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    }
+
+    document.getElementById("quoteForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("quoteName").value.trim();
+      const email = document.getElementById("quoteEmail").value.trim();
+      const budget = document.getElementById("quoteBudget").value.trim();
+      const description = document.getElementById("quoteDescription").value.trim();
+
+      const subject = `Demande de soumission - ${name}`;
+      const body =
+`Nom: ${name}
+Email: ${email}
+Budget: ${budget}
+
+Description du projet:
+${description}
+
+Note:
+Si vous souhaitez envoyer des photos, veuillez les joindre manuellement dans votre courriel.`;
+
+      openMailto(subject, body);
+    });
+
+    document.getElementById("jobForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("jobName").value.trim();
+      const email = document.getElementById("jobEmail").value.trim();
+      const qualifications = document.getElementById("jobQualifications").value.trim();
+
+      const subject = `Demande d'emploi - ${name}`;
+      const body =
+`Nom: ${name}
+Email: ${email}
+
+Qualifications:
+${qualifications}`;
+
+      openMailto(subject, body);
+    });
+  </script>
+
+</body>
+</html>
