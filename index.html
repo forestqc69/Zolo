@@ -603,7 +603,13 @@
       .services,
       .contact-strip{
         grid-template-columns:1fr;
-      }
+        grid-template-areas:
+        "nous"
+        "soumission"
+        "emploi"
+        "facebook";
+        }
+    }
 
       .hero-media img{
         height:420px;
@@ -863,23 +869,22 @@
             </div>
           </div>
         </div>
-        <div class="contact-link">
+        <div class="contact-link contact-facebook">
   <strong>Facebook</strong>
   <a href="https://www.facebook.com/share/1CiXQEfxqR/" target="_blank">
     Voir notre page Facebook
   </a>
 </div>
 
-        <div class="contact-chip">
-          <strong>Soumission</strong>
-          <span>Projet résidentiel ou commercial, demande claire et rapide.</span>
-        </div>
+<a href="#soumission" class="contact-chip contact-soumission">
+  <strong>Soumission</strong>
+  <span>Projet résidentiel ou commercial, demande claire et rapide.</span>
+</a>
 
-        <div class="contact-chip">
-          <strong>Emploi</strong>
-          <span>Envoyez votre candidature et vos qualifications.</span>
-        </div>
-      </div>
+<a href="#emploi" class="contact-chip contact-emploi">
+  <strong>Emploi</strong>
+  <span>Envoyez votre candidature et vos qualifications.</span>
+</a>
 
       <div class="forms-stack">
         <div class="form-box" id="soumission">
@@ -931,7 +936,7 @@
                 <input id="jobName" type="text" required />
               </div>
               <div>
-                <label for="jobEmail">Email</label>
+                <label for="jobEmail">Courriel</label>
                 <input id="jobEmail" type="email" required />
               </div>
             </div>
